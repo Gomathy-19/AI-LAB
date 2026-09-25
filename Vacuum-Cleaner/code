@@ -1,1 +1,40 @@
+print("NAME: Gomathy Ramakrishnan\nUSN: 1WA24CS121")
+room_A = "Dirty"
+room_B = "Dirty"
 
+vacuum_position = "A"
+
+print("Initial State:")
+print("Room A:", room_A)
+print("Room B:", room_B)
+print("Vacuum Position:", vacuum_position)
+
+while room_A == "Dirty" or room_B == "Dirty":
+
+    if vacuum_position == "A":
+
+        if room_A == "Dirty":
+            print("\nRoom A is Dirty")
+            print("Action: SUCK")
+            room_A = "Clean"
+
+        else:
+            print("\nRoom A is Clean")
+            print("Action: MOVE RIGHT")
+            vacuum_position = "B"
+
+    elif vacuum_position == "B":
+
+        if room_B == "Dirty":
+            print("\nRoom B is Dirty")
+            print("Action: SUCK")
+            room_B = "Clean"
+
+        else:
+            print("\nRoom B is Clean")
+            print("Action: MOVE LEFT")
+            vacuum_position = "A"
+
+
+print("\nBoth rooms are Clean!")
+print("Goal achieved.")
