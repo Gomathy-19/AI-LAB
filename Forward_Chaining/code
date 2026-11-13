@@ -1,0 +1,41 @@
+
+facts = {
+    "American(Robert)",
+    "Missile(T1)",
+    "Owns(A,T1)",
+    "Enemy(A,America)"
+}
+
+print("Initial Facts:")
+for fact in facts:
+    print(fact)
+
+
+print("\nForward Chaining Process:")
+
+
+if "Missile(T1)" in facts:
+    facts.add("Weapon(T1)")
+    print("Weapon(T1)")
+
+
+if "Missile(T1)" in facts:
+    facts.add("Sells(Robert,T1,A)")
+    print("Sells(Robert,T1,A)")
+
+
+if "Enemy(A,America)" in facts:
+    facts.add("Hostile(A)")
+    print("Hostile(A)")
+
+
+if ("American(Robert)" in facts and
+    "Weapon(T1)" in facts and
+    "Sells(Robert,T1,A)" in facts and
+    "Hostile(A)" in facts):
+
+    facts.add("Criminal(Robert)")
+    print("\nConclusion: Robert is Criminal")
+
+else:
+    print("\nConclusion: Robert is NOT proved criminal")
